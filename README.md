@@ -1,27 +1,22 @@
-# Files Manager
+# Files Manager API
+This repository contains an API for a files manager developed with Node.js, that enables user authentication, temporary storage with Redis, creation of image thumbnails, and storage of file information using MongoDB. This collaborative project was developed by Calvin Mwangi.
 
-This project is a compilation of back-end concepts: authentication, NodeJS, MongoDB, Redis, pagination and background processing.
+Features
+The Files Manager API provides the following features:
 
-The objective is to build a simple platform to upload and view files with:
+User Authentication: The API supports user authentication, allowing users to securely access their files and manage them through appropriate authorization mechanisms.
 
-- User authentication via a token
-- Listing of all files
-- Uploading a new file
-- Changing permissions of a file
-- Viewing a file
-- Generating thumbnails for images
+Temporary Storage with Redis: The API utilizes Redis as a temporary storage solution, for storage of access tokens created upon authorisation for accessing endpoints without the need to log in every time.
 
-## Core technologies
+Creation of Image Thumbnails: The API incorporates functionality to generate image thumbnails. When a user uploads an image file, the API automatically generates a thumbnail version using a worker process and queing system, facilitating faster rendering and improved user experience.
 
-|                                                                                                         |                                                                                      |                                                                                              |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| ![Redis](https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Redis_Logo.svg/1000px-Redis_Logo.svg.png) | ![MongoDB](https://webassets.mongodb.com/_com_assets/cms/mongodb_logo1-76twgcu2dm.png) | ![NodeJS](https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/256/full/nodejslogo.png) |
+Storage of File Information using MongoDB: The API leverages MongoDB as a database to store file information. This allows for efficient querying, indexing, and retrieval of file-related data, ensuring seamless management and organization of files.
 
-## Testing and Jobs
+# Installation
+To set up the File Manager API on your local environment, please follow these steps:
 
-A queueing job mechanism for creating thumbnails of photos uploaded to the application is included in the project. When a new user is created, it also leverages this feature to generate a welcome message. Bull is used in all of this. 
-![Bull & NodeJS](https://raw.githubusercontent.com/OptimalBits/bull/master/support/logo%402x.png)
+1. Clone this repository to your local machine using the following command: `git clone https://github.com/MuneneCalvin/alx-files_manager`.
 
-Mocha is used in combination with Chai for testing the app.
+2. Install the required dependencies by running the following command in the project's root directory: `npm install`.
 
-![Mocha & Chai](https://miro.medium.com/max/499/0*WpXBkrfgR2g9dw2T.png)
+3. Start the server and worker in two different terminals using `npm run start-server` and `npm run start-worker`.
